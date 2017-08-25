@@ -1,5 +1,7 @@
 package dao;
 
+import models.RetailStore;
+import models.StoreType;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,27 +33,54 @@ public class Sql2oStoreTypeDaoTest {
     }
 
     @Test
-    public void add() throws Exception {
+    public void instantiatesnewStore() throws Exception{
+        StoreType storeType = setUpStoreType();
+        assertTrue(storeType instanceof StoreType);
+    }
+    @Test
+    public void getAllStoreTypes() throws Exception {
+        StoreType storeType = setUpStoreType();
+        StoreType storeType1 = new StoreType("app");
+        storeTypeDao.add(storeType);
+        storeTypeDao.add(storeType1);
+        assertEquals(2, storeTypeDao.getAll().size());
     }
 
     @Test
     public void addStoreTypeToStore() throws Exception {
+        RetailStore retailStore = new RetailStore("Nordstroms", "clothing", 1990, "email");
+        RetailStore retailStore1 = new RetailStore("Macys", "department", 1978, "phone");
+        retailStoreDoa.add(retailStore);
+        retailStoreDoa.add(retailStore1);
+
+        StoreType storeType = setUpStoreType();
+        storeTypeDao.add(storeType);
+
+        storeTypeDao.addStoreTypeToStore(storeType, retailStore);
+        storeTypeDao.addStoreTypeToStore(storeType, retailStore1);
     }
 
     @Test
-    public void getAll() throws Exception {
+    public void deletingStoresAlsoUpdatesTable() throws Exception {
+        StoreType testStoretype  = new StoreType("Seafood");
+        storeTypeDao.add(testStoretype);
+
+        RetailStore retailStore = new RetailStore("Test", "whatever", 2345, "location");
+        retailStoreDoa.add(retailStore);
+
+        RetailStore retailStore1 = new RetailStore("Sloan", "everything", 5656, "email");
+        retailStoreDoa.add(retailStore1);
+
+        retailStoreDoa.
+        restaurantDao.addRestaurantToFoodType(testRestaurant,testFoodtype);
+        restaurantDao.addRestaurantToFoodType(altRestaurant, testFoodtype);
+
+        restaurantDao.deleteById(testRestaurant.getId());
+        assertEquals(0, restaurantDao.getAllFoodtypesForARestaurant(testRestaurant.getId()).size());
     }
 
-    @Test
-    public void getAllStoresForStoreType() throws Exception {
-    }
 
-    @Test
-    public void getById() throws Exception {
-    }
-
-    @Test
-    public void deleteById() throws Exception {
-    }
+    //Helper Method
+    StoreType setUpStoreType(){ return new StoreType("online");}
 
 }

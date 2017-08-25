@@ -18,3 +18,8 @@ CREATE TABLE IF NOT EXISTS storetypes (
  id int PRIMARY KEY auto_increment,
  name VARCHAR
 );
+CREATE TABLE IF NOT EXISTS stores_storetypes (
+ id int PRIMARY KEY auto_increment,
+ storeId INTEGER,
+ storetypeId INTEGER
+);

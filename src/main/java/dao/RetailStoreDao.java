@@ -1,6 +1,7 @@
 package dao;
 
 import models.RetailStore;
+import models.StoreType;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
 public interface RetailStoreDao {
     //Create
     void add (RetailStore retailStore);
+    void addStoreToStoreType(RetailStore retailStore, StoreType storeType);
 
     //Read
     List<RetailStore> getAllStores();
