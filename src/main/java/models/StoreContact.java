@@ -6,8 +6,8 @@ package models;
 public class StoreContact extends RetailStore {
     private String contactInfo;
 
-    public StoreContact (String storeName, String retailType, int yearEstablished, String demographic, String contactInfo){
-        super(storeName, retailType, yearEstablished, demographic);
+    public StoreContact (String storeName, String retailType, int yearEstablished, String contact, String contactInfo){
+        super(storeName, retailType, yearEstablished, contact);
         this.contactInfo = contactInfo;
     }
 

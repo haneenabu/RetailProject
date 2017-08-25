@@ -7,14 +7,14 @@ public class RetailStore {
     private String storeName;
     private String retailType;
     private int yearEstablished;
-    private String demographic;
+    private String contact;
     private int id;
 
-    public RetailStore(String storeName, String retailType, int yearEstablished, String demographic){
+    public RetailStore(String storeName, String retailType, int yearEstablished, String contact){
         this.storeName = storeName;
         this.retailType= retailType;
         this.yearEstablished = yearEstablished;
-        this.demographic = demographic;
+        this.contact = contact;
     }
 
     //Getters
@@ -28,8 +28,8 @@ public class RetailStore {
     public int getYearEstablished() {
         return yearEstablished;
     }
-    public String getDemographic() {
-        return demographic;
+    public String getContact() {
+        return contact;
     }
     public int getId() {
         return id;
@@ -45,8 +45,8 @@ public class RetailStore {
     public void setYearEstablished(int yearEstablished) {
         this.yearEstablished = yearEstablished;
     }
-    public void setDemographic(String demographic) {
-        this.demographic = demographic;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
     public void setId(int id) {
         this.id = id;
@@ -64,7 +64,7 @@ public class RetailStore {
         if (yearEstablished != that.yearEstablished) return false;
         if (!storeName.equals(that.storeName)) return false;
         if (!retailType.equals(that.retailType)) return false;
-        return demographic.equals(that.demographic);
+        return contact.equals(that.contact);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class RetailStore {
         int result = storeName.hashCode();
         result = 31 * result + retailType.hashCode();
         result = 31 * result + yearEstablished;
-        result = 31 * result + demographic.hashCode();
+        result = 31 * result + contact.hashCode();
         return result;
     }
 }

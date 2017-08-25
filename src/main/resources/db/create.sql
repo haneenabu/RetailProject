@@ -5,6 +5,6 @@ CREATE TABLE IF NOT EXISTS stores(
     storeName VARCHAR,
     retailType VARCHAR,
     yearEstablished INT,
-    demographic VARCHAR,
+    contact VARCHAR,
     contactInfo VARCHAR
 );

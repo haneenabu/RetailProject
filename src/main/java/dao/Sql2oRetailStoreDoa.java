@@ -19,7 +19,7 @@ public class Sql2oRetailStoreDoa implements RetailStoreDao{
 
     @Override
     public void add(RetailStore retailStore) {
-        String query = "INSERT INTO stores(storeName, retailType, yearEstablished, demographic) VALUES (:storeName, :retailType, :yearEstablished, :demographic)";
+        String query = "INSERT INTO stores(storeName, retailType, yearEstablished, contact) VALUES (:storeName, :retailType, :yearEstablished, :contact)";
         try(Connection con = sql2o.open()){
             int id =(int) con.createQuery(query)
                     .bind(retailStore)
