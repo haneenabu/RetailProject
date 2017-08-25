@@ -8,3 +8,9 @@ CREATE TABLE IF NOT EXISTS stores(
     contact VARCHAR,
     contactInfo VARCHAR
 );
+CREATE TABLE IF NOT EXISTS blogs (
+    id int PRIMARY KEY auto_increment,
+    writtenBy VARCHAR,
+    rating VARCHAR,
+    storeId INTEGER
+);
