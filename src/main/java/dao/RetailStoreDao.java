@@ -15,6 +15,7 @@ public interface RetailStoreDao {
 
     //Read
     List<RetailStore> getAllStores();
+    List<StoreType> getAllStoreTypesForAStore(int storeId);
 
     RetailStore findById(int id);
 

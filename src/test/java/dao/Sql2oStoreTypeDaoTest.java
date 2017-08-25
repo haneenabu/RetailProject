@@ -71,12 +71,11 @@ public class Sql2oStoreTypeDaoTest {
         RetailStore retailStore1 = new RetailStore("Sloan", "everything", 5656, "email");
         retailStoreDoa.add(retailStore1);
 
-        retailStoreDoa.
-        restaurantDao.addRestaurantToFoodType(testRestaurant,testFoodtype);
-        restaurantDao.addRestaurantToFoodType(altRestaurant, testFoodtype);
+        retailStoreDoa.addStoreToStoreType(retailStore, testStoretype);
+        retailStoreDoa.addStoreToStoreType(retailStore1, testStoretype);
 
-        restaurantDao.deleteById(testRestaurant.getId());
-        assertEquals(0, restaurantDao.getAllFoodtypesForARestaurant(testRestaurant.getId()).size());
+        retailStoreDoa.deleteById(retailStore.getId());
+        assertEquals(0, retailStoreDoa.getAllStoreTypesForAStore(retailStore.getId()).size());
     }
 
 
