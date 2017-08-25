@@ -14,3 +14,7 @@ CREATE TABLE IF NOT EXISTS blogs (
     rating VARCHAR,
     storeId INTEGER
 );
+CREATE TABLE IF NOT EXISTS storetypes (
+ id int PRIMARY KEY auto_increment,
+ name VARCHAR
+);
