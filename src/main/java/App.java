@@ -6,6 +6,7 @@ import dao.Sql2oStoreTypeDao;
 
 import models.BlogFeatures;
 import models.RetailStore;
+import models.StoreType;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
@@ -71,6 +72,38 @@ public class App {
             int blogId = Integer.parseInt(request.params("id"));
             return gson.toJson(blogFeaturesDao.findById(blogId));
         });
+
+        //Create
+        post("/storetype/new", "application/json", (request, response) -> {
+            StoreType storeType = gson.fromJson(request.body(), StoreType.class);
+            storeTypeDao.add(storeType);
+            return gson.toJson(storeType);
+        });
+        //Read
+        get("/stores/:storeId/storetype", "application/json", (request, response) -> {
+            int storeId= Integer.parseInt(request.params("storeId"));
+            return gson.toJson(retailStoreDoa.getAllStoreTypesForAStore(storeId));
+        });
+
+        get("/stores/:storeId/storetype/:id", "application/json", (request, response) -> {
+            int storeId = Integer.parseInt(request.params("storeId"));
+            RetailStore retailStore = retailStoreDoa.findById(storeId);
+            int typeId = Integer.parseInt(request.params("id"));
+            StoreType storeType = storeTypeDao.getById(typeId);
+            storeTypeDao.addStoreTypeToStore(storeType, retailStore);
+            return gson.toJson(storeType);
+        });
+
+        //READ
+        get("/storetype", "application/json", (req, res) -> { //accept a request in format JSON from an app
+            return gson.toJson(storeTypeDao.getAll());//send it back to be displayed
+        });
+
+        get("/storetype/:id", "application/json", (req, res) -> { //accept a request in format JSON from an app
+            int storetypeId = Integer.parseInt(req.params("id"));
+            return gson.toJson(storeTypeDao.getAllStoresForStoreType(storetypeId));
+        });
+
 
         //FILTERS
         after((req, res) ->{
