@@ -9,7 +9,7 @@
 _This API will allow you to determine retail stores and which blogs, store type and contact info each store has._
 
 _This image shows the ability to add new a new Retail Store._
-![Alt text](images/screenshot1.png)
+![Alt text](https://github.com/haneenabu/RetailProject/blob/master/src/main/resources/images/screenshot1.png)
 _This image shows the ability to see all Retail Stores added._
 ![Alt text](images/screenshot2.png)
 _This image shows the ability view a Retail Store by Id._
