@@ -11,15 +11,15 @@ _This API will allow you to determine retail stores and which blogs, store type 
 _This image shows the ability to add new a new Retail Store._
 ![Alt text](https://github.com/haneenabu/RetailProject/blob/master/src/main/resources/images/screenshot1.png)
 _This image shows the ability to see all Retail Stores added._
-![Alt text](images/screenshot2.png)
+![Alt text](https://github.com/haneenabu/RetailProject/blob/master/src/main/resources/images/screenshot2.png)
 _This image shows the ability view a Retail Store by Id._
-![Alt text](images/screenshot3.png)
+![Alt text](https://github.com/haneenabu/RetailProject/blob/master/src/main/resources/images/screenshot3.png)
 _This image shows the ability to create a new blog for a specific retail store._
-![Alt text](images/screenshot4.png)
+![Alt text](https://github.com/haneenabu/RetailProject/blob/master/src/main/resources/images/screenshot4.png)
 _This image shows all the blogs for a specific Retail store._
-![Alt text](images/screenshot5.png)
+![Alt text](https://github.com/haneenabu/RetailProject/blob/master/src/main/resources/images/screenshot5.png)
 _This image shows the ability to view a specific blog by id._
-![Alt text](images/screenshot6.png)
+![Alt text](https://github.com/haneenabu/RetailProject/blob/master/src/main/resources/images/screenshot6.png)
 
 ## Setup/Installation Requirements
 You will need Gradle installed on your device as well as Postman.
