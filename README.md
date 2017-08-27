@@ -1,8 +1,11 @@
-# Retail Store Project
+> August 25, 2017
 
-#### Epicodus Week 4 Project, August 25, 2017
+Welcome to Retail Store Project!
+===================
+#### By _**Haneen Abu-Khater**_
 
-#### By Haneen AbuKhater
+Welcome to the new Retail Api where you can add Retail Stores and keep track of blogs written about them, contact info and store type! **Retail Store App**[^project]. Don't delete me, I'm very helpful! I can be recovered anyway in the **Utils** tab of the <i class="icon-cog"></i> **Settings** dialog.
+
 
 ## Description
 
@@ -20,6 +23,14 @@ _This image shows all the blogs for a specific Retail store._
 ![Alt text](https://github.com/haneenabu/RetailProject/blob/master/src/main/resources/images/screenshot5.png)
 _This image shows the ability to view a specific blog by id._
 ![Alt text](https://github.com/haneenabu/RetailProject/blob/master/src/main/resources/images/screenshot6.png)
+_This image shows the ability to create a new store type._
+![Alt text](https://github.com/haneenabu/RetailProject/blob/master/src/main/resources/images/screenshot7.png)
+_This image shows the all store types for a specific store._
+![Alt text](https://github.com/haneenabu/RetailProject/blob/master/src/main/resources/images/screenshot8.png)
+_This image shows how to create a new contact store._
+![Alt text](https://github.com/haneenabu/RetailProject/blob/master/src/main/resources/images/screenshot9.png)
+_This image shows how to get a specific store with contact info._
+![Alt text](https://github.com/haneenabu/RetailProject/blob/master/src/main/resources/images/screenshot10.png)
 
 ## Setup/Installation Requirements
 You will need Gradle installed on your device as well as Postman.
