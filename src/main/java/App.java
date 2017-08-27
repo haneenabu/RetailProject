@@ -3,12 +3,16 @@ import dao.Sql2oBlogFeaturesDao;
 import dao.Sql2oRetailStoreDoa;
 import dao.Sql2oStoreContactDoa;
 import dao.Sql2oStoreTypeDao;
-
+import exceptions.ApiException;
 import models.BlogFeatures;
 import models.RetailStore;
+import models.StoreContact;
 import models.StoreType;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static spark.Spark.*;
 
@@ -50,7 +54,11 @@ public class App {
 
         get("stores/:id", "application/json", (request, response) -> {
             int storeId = Integer.parseInt(request.params("id"));
-            return gson.toJson(retailStoreDoa.findById(storeId));
+            RetailStore retailStore= retailStoreDoa.findById(storeId);
+            if(retailStore == null){
+                throw new ApiException(String.format("No location with the id '%d' found", storeId), 404);
+            }
+            return gson.toJson(retailStore);
         });
 
         //Create
@@ -104,10 +112,36 @@ public class App {
             return gson.toJson(storeTypeDao.getAllStoresForStoreType(storetypeId));
         });
 
+        //Create Store with a Contact
+        post("/contact/new", "application", (request, response) -> {
+            StoreContact storeContact = gson.fromJson(request.body(), StoreContact.class);
+            storeContactDoa.add(storeContact);
+            response.status(201);
+            return gson.toJson(storeContact);
+        });
+        //Read
+        get("/contact", "application/json", (request, response) -> gson.toJson(storeContactDoa.getAll()));
+
+        get("/contact/:id", "application/json", (request, response) -> {
+            int contactStoreId = Integer.parseInt(request.params("id"));
+            return gson.toJson(storeContactDoa.findContactById(contactStoreId));
+        });
+
 
         //FILTERS
         after((req, res) ->{
             res.type("application/json");
         });
+
+        exception(ApiException.class, (exc, req, res) -> {
+            ApiException err = (ApiException) exc;
+            Map<String, Object> jsonMap = new HashMap<>();
+            jsonMap.put("status", err.getStatusCode());
+            jsonMap.put("errorMessage", err.getMessage());
+            res.type("application/json"); //after does not run in case of an exception.
+            res.status(err.getStatusCode()); //set the status
+            res.body(gson.toJson(jsonMap));  //set the output.
+        });
+
     }
 }
