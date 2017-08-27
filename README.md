@@ -1,4 +1,4 @@
-# API
+# Retail Store Project
 
 #### Epicodus Week 4 Project, August 25, 2017
 
