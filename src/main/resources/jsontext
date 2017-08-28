@@ -1,0 +1,28 @@
+//Stores Json
+{
+    "storeName": "Macy's",
+    "retailType": "clothing",
+    "yearEstablished": 1987,
+    "contact": "phone"
+}
+
+//Blog Json
+{
+    "writtenBy": "John",
+    "rating": 6,
+    "storeId": 1
+}
+
+//StoreType Json
+{
+    "name": "Online"
+}
+
+//Create a store with contact info
+{
+    "storeName": "Test",
+    "retailType": "allt the things",
+    "yearEstablished": 1990,
+    "contactInfo": "etsy.com",
+    "contact": "website"
+}
